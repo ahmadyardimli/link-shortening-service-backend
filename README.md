@@ -702,5 +702,6 @@ Typical steps (matching provided screenshots):
 
 ## License
 
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
-This project is licensed under the **Apache License 2.0** — see the [LICENSE](LICENSE) file for details.
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://github.com/ahmadyardimli/link-shortening-service-backend/blob/master/LICENSE)  
+This project is licensed under the **Apache License 2.0** — see the [LICENSE](https://github.com/ahmadyardimli/link-shortening-service-backend/blob/master/LICENSE) file for details.
+
