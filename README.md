@@ -600,28 +600,24 @@ Common statuses: `400` invalid input • `401` unauthorized • `403` forbidden 
 Typical flow in the UI:
 
 1. **Register/Login** to get tokens.
-   *Screens:*
-   `docs/swagger/auth_register_ui1.png`
-   `docs/swagger/auth_register_ui2.png`
+   ![Swagger register UI 1](docs/swagger/auth_register_ui1.png)
+   ![Swagger register UI 2](docs/swagger/auth_register_ui2.png)
 
 2. **Authorize** (top-right “Authorize” button) with your **access token** (omit `Bearer ` if the UI asks only for token; if it expects the full value, paste as provided).
-   *Screens:*
-   `docs/swagger/swagger_add_auth.png`
-   `docs/swagger/swagger_authorized.png`
+   ![Swagger add auth](docs/swagger/swagger_add_auth.png)
+   ![Swagger authorized](docs/swagger/swagger_authorized.png)
 
 3. Call protected endpoints like **`GET /users/me/stats`**.
-   *Screens:*
-   `docs/swagger/protected_endpoint_req_and_res.png`
+   ![Protected endpoint req/resp](docs/swagger/protected_endpoint_req_and_res.png)
 
 4. Explore/create short links via **`POST /shorten`** and inspect responses.
-   *Screens:*
-   `docs/swagger/shorten_before_request.png`
-   `docs/swagger/shorten_response.png`
-   `docs/swagger/shorten_stats.png`
-   `docs/swagger/click_req_res.png`
-   `docs/swagger/swagger_ui1.png`
-   `docs/swagger/swagger_ui2.png`
-   `docs/swagger/swagger_ui3.png`
+   ![Shorten before request](docs/swagger/shorten_before_request.png)
+   ![Shorten response](docs/swagger/shorten_response.png)
+   ![Shorten stats](docs/swagger/shorten_stats.png)
+   ![Click req/resp](docs/swagger/click_req_res.png)
+   ![Swagger UI 1](docs/swagger/swagger_ui1.png)
+   ![Swagger UI 2](docs/swagger/swagger_ui2.png)
+   ![Swagger UI 3](docs/swagger/swagger_ui3.png)
 
 ---
 
@@ -630,40 +626,50 @@ Typical flow in the UI:
 Typical steps (matching provided screenshots):
 
 1. **Register** → **Login** to receive `accessToken` and `refreshToken`.
-   `docs/postman/register_request_response.png`
-   `docs/postman/login_req_res.png`
+   ![Register request/response](docs/postman/register_request_response.png)
+   ![Login request/response](docs/postman/login_req_res.png)
 
 2. **Add Authorization header** with the returned access token **as-is** (already prefixed with `Bearer `).
-   `docs/postman/adding_auth_to_header_after_login.png`
+   ![Add auth header after login](docs/postman/adding_auth_to_header_after_login.png)
 
 3. **Create short links**:
 
-   * Minimal body: `docs/postman/url_shorten_minimal.png`
-   * All options (alias/expiry/reuse): `docs/postman/url_shorten_with_all_options_included.png`
-   * Validation error (alias too long): `docs/postman/url_shorten_with_too_long_error_response.png`
-   * Alias conflict: `docs/postman/custome_alias_already_exist_error.png`
+   * Minimal body:
+     ![Shorten minimal](docs/postman/url_shorten_minimal.png)
+   * All options (alias/expiry/reuse):
+     ![Shorten all options](docs/postman/url_shorten_with_all_options_included.png)
+   * Validation error (alias too long):
+     ![Alias too long](docs/postman/url_shorten_with_too_long_error_response.png)
+   * Alias conflict:
+     ![Alias already exists](docs/postman/custome_alias_already_exist_error.png)
 
 4. **Stats & redirects**:
 
-   * Click (redirect) request & response: `docs/postman/short_code_click_req_res.png`
+   * Click (redirect) request & response:
+     ![Click redirect req/resp](docs/postman/short_code_click_req_res.png)
    * Stats by code (with and without alias):
-     `docs/postman/stats_short_code_req_res.png`
-     `docs/postman/stats_for_short_code_without_alias.png`
+     ![Stats by code](docs/postman/stats_short_code_req_res.png)
+     ![Stats without alias](docs/postman/stats_for_short_code_without_alias.png)
 
 5. **User stats (protected)**:
 
-   * First call to `GET /users/me/stats`: `docs/postman/first_call_users_me_stats.png`
-   * All stats for authenticated user: `docs/postman/auth_user_all_stats.png`
+   * First call to `GET /users/me/stats`:
+     
+     ![First call users/me stats](docs/postman/first_call_users_me_stats.png)
+   * All stats for authenticated user:
+     ![All stats user](docs/postman/auth_user_all_stats.png)
    * Unauthorized example (expired/missing token):
-     `docs/postman/error_response_for_protected_me_stats_when_token_expire.png`
+     ![Unauthorized example](docs/postman/error_response_for_protected_me_stats_when_token_expired.png)
 
 6. **Token refresh** (rotate refresh token and get a new access token):
-   `docs/postman/refresh_request.png`
+   ![Refresh request](docs/postman/refresh_request.png)
 
 7. **More samples**:
 
-   * Create & then shorten again as the same user: `docs/postman/auth_user_shorten.png`
-   * Click another code: `docs/postman/click_another_short_code.png`
+   * Create & then shorten again as the same user:
+     ![Auth user shorten](docs/postman/auth_user_shorten.png)
+   * Click another code:
+     ![Click another short code](docs/postman/click_another_short_code.png)
 
 > **Tip:** In Postman you can create collection variables (`accessToken`, `refreshToken`, `userId`) and use them across requests. Send the access token as the full value your backend returns (it already contains the `Bearer ` prefix).
 
@@ -696,4 +702,5 @@ Typical steps (matching provided screenshots):
 
 ## License
 
-This backend follows the project’s chosen license (see the repository’s `LICENSE` file).
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+This project is licensed under the **Apache License 2.0** — see the [LICENSE](LICENSE) file for details.
